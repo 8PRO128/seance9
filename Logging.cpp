@@ -32,6 +32,16 @@ class Log {
     }
 };
 
+class DebugLog : public Log {
+  public:
+    DebugLog(string message) : Log(message) {}
+    
+    string get_message() override {
+      string message = Log::get_message();
+      return "[DEBUG] " + message;
+    }
+};
+
 
 int main() {
   Log *statement = new Log("Une message generique");
